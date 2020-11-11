@@ -1,0 +1,53 @@
+{%extends "layout.html"%}
+
+{% block title%}HKT Order Page{% endblock title%}
+
+
+
+{% block body%}
+
+{%load static %}
+
+<div>
+	<img src="{%static 'images/orderhere.jpg'%}" class="d-block w-100" style="height: 300px; width:300px;" alt="...">
+</div>
+
+<div class="container"> 
+<form class="container m-5 p-5" action="/Tiffin/Orders/" method="POST" style="align-items: center;">  {% csrf_token %}
+<h2>Enter Order Details..!</h2><br/>
+
+  <div class="form-group">
+    <label for="CName">Customer Name:</label>
+    <input type="text" class="form-control" id="cus_name" name="cus_name">
+  </div>
+ 
+ <div class="form-group">
+    <label for="Number">Number Of Tiffins:</label>
+    <input type="text" class="form-control" id="no" name="no">
+  </div>
+ 
+ <div class="form-group">
+    <label for="Date">Today's Date:</label><br>
+ 
+<input type="date" id="time" name="time">
+ </div>
+
+  <div class="custom-control custom-checkbox p-2 m-3">
+  <input type="checkbox" class="custom-control-input" id="customCheck1" name="customCheck1" value="True">
+  <label class="custom-control-label" for="customCheck1">Payment Received</label>
+  </div>
+    <div class="custom-control custom-checkbox p-2 m-3">
+  <input type="checkbox" class="custom-control-input" id="customCheck2" name="customCheck2" value="True">
+  <label class="custom-control-label" for="customCheck2">Tiffin Given</label>
+  
+	</div>
+   <div class="custom-control custom-checkbox p-2 m-3">
+  <input type="checkbox" class="custom-control-input" id="customCheck3" name="customCheck3" value="True">
+  <label class="custom-control-label" for="customCheck3">Tiffin Received</label>
+  
+</div>
+<button type="submit" class="btn btn-primary btn-block">Place Order</button>
+</form>
+</div>
+
+{% endblock body%}
